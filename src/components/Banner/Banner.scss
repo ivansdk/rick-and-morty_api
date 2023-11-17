@@ -1,0 +1,39 @@
+@import "../../scss/mixins";
+
+.banner {
+  height: 700px;
+  background: url('../../../public/img/backgrounds/bg-light.jpg') center (center/cover) no-repeat;
+  transition: background 0.3s ease-in-out;
+  @include smallPhones {
+    height: 650px;
+  }
+
+  &_dark {
+    background: url('../../../public/img/backgrounds/bg-dark.jpg') center (center/cover) no-repeat;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__title {
+    width: 530px;
+    color: #FFF;
+    text-align: center;
+    font-size: 50px;
+    line-height: 70px;
+    margin-bottom: 40px;
+
+    @include smallPhones {
+      font-size: 31px;
+      line-height: 40px;
+      width: 100%;
+    }
+  }
+
+  
+}

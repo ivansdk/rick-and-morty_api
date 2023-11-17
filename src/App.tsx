@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Routes, Route } from 'react-router-dom';
+import { Root } from './Root';
+import { HomePage } from './pages/HomePage';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from './app/hooks';
+import { CharactersPage } from './pages/CharactersPage/CharactersPage';
+import { initCharacters, initEpisodes, initLocations } from './app/slices/generalDataSlice';
 
 function App() {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector(state => state.theme);
+
+  // console.log(characters);
+
+  useEffect(() => {
+    if(theme.currentTheme === 'dark') {
+      document.body.classList.add('dark');
+    }else {
+      document.body.classList.remove('dark');
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    dispatch(initCharacters());
+    dispatch(initLocations());
+    dispatch(initEpisodes());
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Root />}>
+          <Route index element={<HomePage />} />
+          <Route path='/characters' element={<CharactersPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

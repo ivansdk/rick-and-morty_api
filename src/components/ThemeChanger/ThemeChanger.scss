@@ -1,0 +1,70 @@
+@import "../../scss/variables";
+
+.theme {
+  position: relative;
+  width: 75px;
+  height: 35px;
+
+  &__svg {
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    cursor: pointer;
+
+    &-right {
+      background: url('../../../public/img/svg/morty.svg') center (center/cover) no-repeat;
+      top: 2px;
+      right: 4px;
+    }
+
+    &-left {
+      background: url('../../../public/img/svg/rick.svg') center (center/cover) no-repeat;
+      top: 2px;
+      right: 40px;
+    }
+  }
+
+  
+
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background: #fff;
+    box-shadow: -1px 1px 5px 1px rgba(0, 0, 0, 0.25) inset;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 1px solid white;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 33px;
+    height: 33px;
+    border-radius: 50px;
+    background: $dark-theme;
+    position: absolute;
+    top: 1px;
+    right: 40px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
+  &_dark {
+    &:before {
+      background: $dark-theme;
+      box-shadow: none;
+    }
+  
+    &:after {
+      background: white;
+      right: 0px;
+    }
+  }
+}

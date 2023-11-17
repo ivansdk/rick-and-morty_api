@@ -1,0 +1,38 @@
+@import "../../scss/mixins";
+
+
+.filters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  @media (max-width: 1200px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  &__dropdowns {
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1200px) {
+      margin-bottom: 30px;
+    }
+
+    @include phones {
+      width: auto;
+      flex-direction: column;
+      height: 120px;
+    }
+  }
+}
+
+.characters__grid-wrapper {
+  margin-top: 90px;
+}
+
+.characters__pagination {
+  margin-top: 70px;
+}
+

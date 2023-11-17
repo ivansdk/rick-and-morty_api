@@ -1,0 +1,99 @@
+@import "./scss/nullstyle";
+@import "./scss/variables";
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Krona One', sans-serif;
+}
+
+.logo {
+  width: 100%;
+}
+
+
+body {
+  --main-background-color: #FFF;
+  --main-text-color: #000;
+
+  --card-background-color: #F4F4F4;
+  --card-text-color: #000;
+  --card-text-second-color: #5B5B5B;
+
+  --footer-top-background-color: #F5F5F5;
+  --footer-bottom-background-color: #EAEAEA;
+
+  --dropdown-active--color: #404040;
+}
+
+body.dark {
+  --main-background-color: #1D2025;
+  --main-text-color: #FFF;
+
+  --card-background-color: #080809;
+  --card-text-color: #FFF;
+  --card-text-second-color: #979797;
+
+  --footer-top-background-color: #16181C;
+  --footer-bottom-background-color: #1A1A1A;
+
+  --dropdown-active--color: #b9b9b9;
+}
+
+.wrapper {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.container {
+  width: 1150px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: 900px;
+  }
+
+  @media (max-width: 940px) {
+    width: 700px;
+  }
+
+  @media (max-width: 770px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+
+.message {
+  text-align: center;
+  font-size: 18px;
+  color: var(--main-text-color);
+  transition: all 0.3s ease-in-out;
+
+  &_error {
+    color: red;
+  }
+}
+
+.btn {
+  width: 200px;
+  height: 60px;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  background: #16acc9;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+
+  &_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

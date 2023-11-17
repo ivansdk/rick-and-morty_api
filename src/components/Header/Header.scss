@@ -1,0 +1,84 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.header {
+  background-color: var(--main-background-color);
+  padding: 0 30px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+
+  @include smallPhones {
+    padding: 0 10px;
+  }
+
+  &__right-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 166px;
+    height: 50px;
+    margin-right: 115px;
+    @include phones {
+      margin-right: 30px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    @include smallPhones {
+      display: none;
+    }
+  }
+
+  &__item {
+    margin-right: 67px;
+    &:last-child {
+      margin-right: 0;
+    }
+    @include phones {
+      margin-right: 30px;
+    }
+  }
+
+  &__link {
+    color: $light-gray;
+    transition: color 0.3s ease-in-out;
+    font-size: 15px;
+    font-weight: 400;
+
+    &_active {
+      color: var(--main-text-color);
+    }
+
+    @include phones {
+      font-size: 14px;
+    }
+  }
+
+  &__theme {
+    @include smallPhones {
+      display: none;
+    }
+  }
+
+  &__burger {
+    width: 50px;
+    height:50px;
+    background: url('../../../public/img/burger/menu-burger-black.png');
+    display: none;
+    
+    &_white {
+      background: url('../../../public/img/burger/menu-burger-white.png');
+    }
+
+    @media (max-width: 576px) {
+      display: block;
+    }
+  }
+}

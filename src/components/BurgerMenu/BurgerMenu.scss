@@ -1,0 +1,66 @@
+
+.menu {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  background-color: var(--main-background-color);
+  color: var(--card-text-color);
+  z-index: 100;
+  padding: 15px;
+  transition:  all 0.3s ease-in-out;
+
+  &_active {
+    top: 0%;
+  }
+  
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 146px;
+    height: 50px;
+  }
+
+  &__close {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    background: url('../../../public/img/icons/close-big_black.png') center center/cover no-repeat;
+
+    &_white {
+      background: url('../../../public/img/icons/close-big_white.png') center center/cover no-repeat;
+    }
+  }
+
+  &__nav {
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    list-style: none;
+    text-align: center;
+
+  }
+
+  &__item {
+    margin-top: 20px;
+  }
+
+  &__link {
+    font-size: 27px;
+  }
+
+  &__theme {
+    display: flex;
+    justify-content: center;
+  }
+
+}

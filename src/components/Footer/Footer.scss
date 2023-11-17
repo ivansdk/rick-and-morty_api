@@ -1,0 +1,43 @@
+@import "../../scss/mixins";
+
+.footer {
+  &__top {
+    min-height: 110px;
+    background: var(--footer-top-background-color);
+    color: var(--main-text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+
+  }
+
+  &__info {
+    & span {
+      margin-right: 28px;
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include smallPhones {
+        display: block;
+        margin-right: 0px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+
+
+  &__bottom {
+    min-height: 60px;
+    background: var(--footer-bottom-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #969696;
+    transition: background 0.3s ease-in-out;
+  }
+}

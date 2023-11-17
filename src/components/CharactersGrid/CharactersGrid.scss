@@ -1,0 +1,28 @@
+@import "../../scss/mixins";
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 550px);
+  grid-template-rows: repeat(2, 245px);
+  column-gap: 100px;
+  row-gap: 70px;
+  justify-content: center;
+
+  @media (max-width: 1400px) {
+    column-gap: 50px;
+    row-gap: 50px;
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 550px;
+    grid-auto-columns: 550px;
+    grid-auto-rows: 245px;
+  }
+
+  @include smallPhones {
+    grid-template-columns: 280px;
+    grid-template-rows: repeat(2, 160px);
+    grid-auto-rows: 160px;
+    row-gap: 30px;
+  }
+}

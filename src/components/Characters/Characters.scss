@@ -1,0 +1,18 @@
+@import "../../scss/mixins";
+
+.characters {
+  background: var(--main-background-color);
+  transition: background 0.3s ease-in-out;
+  min-height: 800px;
+  padding: 40px 0 80px 0;
+
+  &__title {
+    color: var(--main-text-color);
+    transition: color 0.3s ease-in-out;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    
+  }
+}

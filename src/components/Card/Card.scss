@@ -1,0 +1,101 @@
+@import "../../scss/mixins";
+
+.card {
+  background: var(--card-background-color);
+  border-radius: 15px;
+  display: flex;
+  color: var(--card-text-color);
+  font-size: 15px;
+  line-height: 17px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+
+  @include smallPhones {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  
+
+  &__img {
+    width: 45%;
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+    background: #D9D9D9;
+    margin-right: 15px;
+    object-fit: cover;
+
+    @include smallPhones {
+      width: 35%;
+    }
+  }
+
+  &__info {
+    margin-top: 22px;
+    width: 52%;
+
+    @include smallPhones {
+      width: 60%;
+      margin-top: 10px;
+    }
+  }
+
+  &__name {
+    font-size: 20px;
+    line-height: 21px;
+    margin-bottom: 12px;
+
+    @include smallPhones {
+      font-size: 12px;
+      line-height: 13px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__type {
+    margin-bottom: 8px;
+
+    @include smallPhones {
+      margin-bottom: 2px;
+    }
+  }
+
+  &__status{
+    color: var(--card-text-second-color);
+    margin-bottom: 10px;
+
+    &_alive {
+      color: rgb(0, 180, 0);
+    }
+
+    &_dead {
+      color: rgb(180, 0, 0);
+    }
+
+    @include smallPhones {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__group {
+    margin-bottom: 8px;
+
+    @include smallPhones {
+      margin-bottom: 5px;
+    }
+
+    &-title {
+      margin-bottom: 3px;
+
+      @include smallPhones {
+        margin-bottom: 3px;
+      }
+    }
+
+    &-subtitle {
+      color: var(--card-text-second-color);
+      transition: color 0.3s ease-in-out;
+    }
+  }
+
+  
+}
