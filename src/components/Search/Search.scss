@@ -49,6 +49,10 @@
     &_white {
       background: url('../../../public/img/icons/close_white.png') center center/cover no-repeat;
     }
+
+    @include smallPhones {
+      right: 10px;
+    }
   }
 
   &__btn {

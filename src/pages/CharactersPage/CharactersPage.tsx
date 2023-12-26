@@ -10,7 +10,6 @@ import { initCharacters } from "../../app/slices/charactersSlice";
 import { Pagination } from "../../components/Pagination/Pagination";
 import { Loader } from "../../components/Loader/Loader";
 
-
 export const CharactersPage = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useAppDispatch();
@@ -66,7 +65,9 @@ export const CharactersPage = () => {
         </div>
 
         <div className="characters__grid-wrapper">
-          {error && <p className="message_error">Something went wrong</p>}
+          {error && (
+            <p className="message message_error">Something went wrong</p>
+          )}
           {loading && <Loader />}
           {data.results && !loading && !error && (
             <CharactersGrid characters={data.results} />
@@ -75,7 +76,7 @@ export const CharactersPage = () => {
             <p className="message">There is nothing here</p>
           )}
         </div>
-        {data.info && !loading && (
+        {data.info && !loading && !error && (
           <div className="characters__pagination">
             <Pagination
               total={data.info.count}

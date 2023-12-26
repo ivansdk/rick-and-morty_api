@@ -1,6 +1,6 @@
 import cn from "classnames";
 
-import { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { Link, useSearchParams } from "react-router-dom";
 import { Option } from "../../Types/Options";
@@ -21,38 +21,41 @@ export const Dropdown: React.FC<Props> = ({
 }) => {
   const [searchParams] = useSearchParams();
   const [dropdowActive, setDropdowActive] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const currentTitle =
     options.filter((option) => option.value === currentOption)[0]?.label || "";
 
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDropdowActive(false);
+    }
+  }, []);
 
   useEffect(() => {
-    if (!dropdowActive) {
+    if(!dropdowActive) {
       return;
     }
 
-    const handleDocumentClick = () => {
-      setDropdowActive(false);
-    };
-
-    document.addEventListener("click", handleDocumentClick);
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener("click", handleDocumentClick);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [dropdowActive]);
-  
 
   return (
-    <div className="dropdown">
+    <div ref={dropdownRef} className="dropdown">
       <div className="dropdown__title">{title}</div>
 
       <div className="dropdown__wrapper">
         <button
           type="button"
           className="dropdown__trigger"
-          onClick={(e) => {
-            e.stopPropagation();
-            setDropdowActive((current) => !current);
+          onClick={() => {
+            setDropdowActive(!dropdowActive);
           }}
         >
           {currentTitle !== "" ? (
@@ -65,7 +68,9 @@ export const Dropdown: React.FC<Props> = ({
             className={cn("dropdown__icon", {
               dropdown__icon_active: dropdowActive,
             })}
-          >&#10148;</span>
+          >
+            &#10148;
+          </span>
         </button>
 
         <div
@@ -79,14 +84,12 @@ export const Dropdown: React.FC<Props> = ({
                 to={{
                   search: getSearchWith(searchParams, {
                     [selectType]: option.value,
-                    page: '1',
+                    page: "1",
                   }),
                 }}
                 className="dropdown__item"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setDropdowActive(false)
-
+                onClick={() => {
+                  setDropdowActive(false);
                 }}
               >
                 {option.label}
